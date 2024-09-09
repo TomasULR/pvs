@@ -1,8 +1,10 @@
+import fileworks.DataExport;
 import fileworks.DataImport;
 
 public class Main {
     public static void main(String[] args) {
         DataImport de = new DataImport("inputs.txt");
+        DataExport da = new DataExport("result.txt");
         String line;
         String[] params;
         int A;
@@ -16,20 +18,22 @@ public class Main {
             B = Integer.parseInt(params[1]);
             switch (params[2]){
                 case "A":{
-                    System.out.println(A+B);
+                    da.writeLine(String.valueOf(A+B));
                 }break;
                 case "S":{
-                    System.out.println(A-B);
+                    da.writeLine(String.valueOf(A-B));
                 }break;
                 case "M":{
-                    System.out.println(A*B);
+                    da.writeLine(String.valueOf(A*B));
                 }break;
                 case "D":{
-                    System.out.println(A/B);
+                    da.writeLine(String.valueOf(A/B));
                 }break;
             }
 
         }
         de.finishImport();
+        da.finishExport();
+
     }
 }
