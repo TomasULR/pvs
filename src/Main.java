@@ -1,5 +1,9 @@
+import fileworks.DataImport;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        DataImport de = new DataImport("inputs.txt");
+        de.printFile();
+        de.finishImport();
     }
 }
