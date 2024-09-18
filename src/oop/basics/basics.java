@@ -5,6 +5,8 @@ import java.awt.*;
 public class basics {
     public static void main(String[] args) {
         Cordinates cordinates = new Cordinates(2,4);
+
+
     }
 }
 
@@ -29,5 +31,15 @@ class Rectangle{
 
     public Rectangle(Dimension d){
 
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "height=" + height +
+                ", widht=" + widht +
+                ", DEFAULT_HEIGHT=" + DEFAULT_HEIGHT +
+                ", DEFAULT_WIDTH=" + DEFAULT_WIDTH +
+                '}';
     }
 }
