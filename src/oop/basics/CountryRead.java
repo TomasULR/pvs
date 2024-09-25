@@ -6,6 +6,9 @@ import fileworks.DataImport;
 import java.util.ArrayList;
 
 public class CountryRead {
+
+
+
     public static void main(String[] args) {
 
         DataImport di = new DataImport("countries.txt");
@@ -23,7 +26,7 @@ public class CountryRead {
 
         int MaxArea = 0;
         int lastAre = 0;
-
+        String areMax = "";
         while (di.hasNext()){
             line = di.readLine();
             params = line.split(";");
@@ -36,14 +39,18 @@ public class CountryRead {
                     Double.parseDouble(params[3])
 
             );
+
+            ageavr.add(c);
             counter++;
             if(params[1].equals("Europe")){
                 europecounter++;
             }
 
+
             lastAre = Integer.parseInt(params[2]);
             if (lastAre > MaxArea){
                 MaxArea = lastAre;
+                areMax = params[0];
 
             }
 
@@ -55,21 +62,23 @@ public class CountryRead {
         }
 
 
-        System.out.println("Vek doziti "+counttt/counter);
-        System.out.println("europecounter "+europecounter);
-        System.out.println("MaxAre "+MaxArea);
 
         de.finishExport();
         di.finishImport();
 
+        System.out.println("Vek doziti "+counttt/counter);
+        System.out.println("europecounter "+europecounter);
+        System.out.println("MaxPopulation " + areMax);
 
 
 
 
     }
+
+
 }
 
-class Country{
+class  Country{
     String name;
     String continent;
     int area;
