@@ -2,10 +2,19 @@ package oop.basics.inheritance;
 
 public class Doctor {
     String name;
-    int Salary;
+    int salary;
 
     public Doctor(String name, int salary) {
         this.name = name;
-        Salary = salary;
+        this.salary = salary;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    void diagnose(){
+        System.out.println("DIagnosing");
+        salary += 1000;
     }
 }
