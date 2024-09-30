@@ -7,6 +7,7 @@ public class basics {
         Cordinates cordinates = new Cordinates(2,4);
 
 
+
     }
 }
 
