@@ -9,7 +9,7 @@ public class CardioSurgeon extends Surgeon{
         salary+= CARDIO_SURGEON_BONUS;
     }
 
-    void cardioSurgeon(){
+    void cardioSurgery(){
         System.out.println("Cut heart");
         salary += 15000;
     }

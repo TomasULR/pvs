@@ -6,8 +6,6 @@ public class basics {
     public static void main(String[] args) {
         Cordinates cordinates = new Cordinates(2,4);
 
-
-
     }
 }
 

@@ -19,7 +19,7 @@ class HuntingSeason {
 
                 } catch (Exception e) {
                     System.out.println(tester.name + " to nezvladne");
-                    tester.gold += 100;
+                    tester.gold -= 100;
                 }
                 break;
             case 3:
@@ -29,7 +29,7 @@ class HuntingSeason {
 
                 } catch (Exception e) {
                     System.out.println(tester.name + " to nezvladne");
-                    tester.gold += 100;
+                    tester.gold -= 100;
                 }
                 break;
         }
