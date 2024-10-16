@@ -1,30 +1,30 @@
-package oop.basics.inheritance.polymorphism;
+package oop.polymorphism;
 
-import java.sql.Time;
-
-public class HourShop {
+public class HourShop{
     static void callPrint(Clock c){
         c.printTime();
     }
-    public static void main(String[] args) {
-        HourClock hourClock = new HourClock();
-        hourClock.seconds = 7700;
-        hourClock.printTime();
-        Timer t = new Timer();
-        t.second = 550;
-        t.printTime();
 
-        Clock[] clocks = {hourClock, t};
+    public static void main(String[] args) {
+        HourClock hours = new HourClock();
+        hours.seconds = 7700;
+        hours.printTime();
+        Timer timer = new Timer();
+        timer.second = 550;
+        timer.printTime();
+
+        Clock[] clocks = {timer, hours};
     }
 
 
 }
+class HourClock implements Clock{
 
-class HourClock implements Clock {
     int seconds;
 
     @Override
     public void printTime() {
+        //HH:mm:ss
         int hours = seconds / 3600;
         int mins = (seconds % 3600) / 60;
         int secs = seconds % 60;
@@ -33,18 +33,19 @@ class HourClock implements Clock {
 
     @Override
     public int getTime() {
-        return 0;
+        return seconds;
     }
 }
 class Timer implements Clock{
     int second;
+
     @Override
     public void printTime() {
-        System.out.println((second/60) + ":" + second % 60);
+        System.out.println((second/60) + ":" + (second%60));
     }
 
     @Override
     public int getTime() {
-        return 0;
+        return second;
     }
 }
