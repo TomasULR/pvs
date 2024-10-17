@@ -1,8 +1,11 @@
-package oop.basics.inheritance.polymorphism;
+package oop.polymorphism;
 
 public interface Clock {
-    void printTime();
-    int getTime();
 
+   /**
+    * vypise cas v predem definovanem formatu
+    */
+   void printTime();
 
+   int getTime();
 }
