@@ -26,7 +26,7 @@ public class CountrySorting {
     public static void main(String[] args) {
         ArrayList<Country> countries = loadData("countries.txt");
 
-        Collections.sort(Country.BY_NAME);
+        //Collections.sort(Country.BY_NAME);
         System.out.println(countries);
         countries.sort(new CountryComparator());
 
