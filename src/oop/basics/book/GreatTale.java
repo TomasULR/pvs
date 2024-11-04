@@ -32,7 +32,7 @@ public class GreatTale {
         TextMsg msg = new TextMsg("Johnny", "27-06-2003", "Oh, Hi Mark!");
         Book LordOTR = new Book("Lord of the rings", "J. R. R. Tolkien", "29-07-1968", 243, LOTR);
         Book LordOfTheRings = new Book("Lord of the rings", "John Ronald Reuel Tolkien", "29-07-1968", 243, LOTR);
-        System.out.println(Book.compare(LordOfTheRings, LordOTR));//melo by vratit True, maji stejne knizni ID (IBM)
+        //System.out.println(Book.compare(LordOfTheRings, LordOTR));//melo by vratit True, maji stejne knizni ID (IBM)
 
         System.out.println("Wordcount for LOTR: " + wordCount(LordOTR));
         System.out.println("Wordcount for Msg: " + wordCount(msg));
