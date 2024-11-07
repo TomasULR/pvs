@@ -55,3 +55,14 @@ class ArrayStack{
         return -1;
     }
 }
+
+class Link{
+    int data;
+    Link next;
+}
+class LinkStack{
+    Link top;
+
+
+
+}
