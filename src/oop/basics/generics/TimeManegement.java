@@ -1,19 +1,23 @@
 package oop.basics.generics;
 
-import java.util.LinkedList;
-import java.util.Queue;
+
+import java.util.*;
 
 public class TimeManegement {
     public static void main(String[] args) {
-        Queue<Employe> employes = new LinkedList<>();
-//        employes.peek();
-//        employes.poll();
-//        employes.offer(null);
+//        ArrayList<Employee> employeeArrayList = new ArrayList<>();
+//        employeeArrayList.add(new Employee("Tester", 600, 33.4));
+//        Queue<Employee> employees = new LinkedList<>(employeeArrayList);
+        Queue<Employee> employees = new LinkedList<>();
+        //priadni prvku do fronty:
+        employees.add(new Employee("Jarmil", 600, 42));
+        employees.add(new Employee("Boris", 480, 42));
+        employees.add(new Employee("Lukas", 360, 42));
 
-        employes.add(new Employe("Jarmil", 60, 30));
-        employes.add(new Employe("David", 60, 30));
-        employes.add(new Employe("Chose", 600, 30));
-        employes.add(new Employe("Jarmil2", 60, 30));
+//        employees.peek();
+//        employees.poll();
+//        employees.offer(null);
+
 
         Queue<Task> tasks = new LinkedList<>();
         tasks.add(new Task("Exchange cables", 60));
@@ -37,27 +41,40 @@ public class TimeManegement {
         tasks.add(new Task("Patch security vulnerabilities", 80));
         tasks.add(new Task("Calibrate display", 30));
 
+//        for (Iterator<Task> taskIterator = tasks.iterator(); taskIterator.hasNext(); taskIterator.next()){
+//            System.out.println(taskIterator.toString());
+//        }
 
-        while (!tasks.isEmpty() && !employes.isEmpty()) {
-            Employe top = employes.peek();
+
+        System.out.println(employees);
+
+        while (!tasks.isEmpty() && !employees.isEmpty()){
+            Employee top = employees.peek();
             Task currentTask = tasks.peek();
 
-            if(top.freeTime >= currentTask.completeTime){
+            System.out.println(top);
+            System.out.println("Doing task: " + currentTask.taskName + ", duration: " + currentTask.completeTime);
+            if (top.freeTime >= currentTask.completeTime){
+                //splni ukol za cas
                 top.freeTime -= currentTask.completeTime;
+                //splni ukol, ukol jde ven z fronty ukolu
                 tasks.poll();
+                System.out.println(top.name + " did task " + currentTask.taskName);
+            } else {
+                System.out.println(top.name + " could not finish task " + currentTask.taskName);
+                employees.poll();
             }
-            else{
-                employes.poll();
-            }
+
+            System.out.println(employees);
         }
     }
 }
-class Employe {
+class Employee{
     String name;
     int freeTime;
     double shoeSize;
 
-    public Employe(String name, int freeTime, double shoeSize) {
+    public Employee(String name, int freeTime, double shoeSize) {
         this.name = name;
         this.freeTime = freeTime;
         this.shoeSize = shoeSize;
@@ -65,7 +82,7 @@ class Employe {
 
     @Override
     public String toString() {
-        return name + "free time left: " + freeTime;
+        return name + ", Free time left: " + freeTime;
     }
 }
 class Task{
@@ -77,5 +94,3 @@ class Task{
         this.completeTime = completeTime;
     }
 }
-
-
