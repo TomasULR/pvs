@@ -5,7 +5,22 @@ import java.util.Arrays;
 
 public class fileworks {
 
-
+    static void tree(String filepath){
+        File f = new File(filepath);
+        if (f.exists()){
+            if (f.isDirectory()){
+                System.out.println(f.getPath());
+                File[] files = f.listFiles();
+                for (File file : files){
+                    tree(file.getPath());
+                }
+            } else {
+                System.out.println(f.getPath());
+            }
+        } else {
+            System.out.println("Wrong tree call!");
+        }
+    }
     public static void main(String[] args) {
         File file = new File("Cities.txt");
         File folder = new File("src");
