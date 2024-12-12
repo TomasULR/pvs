@@ -1,0 +1,35 @@
+Soubor GreatTale má v sobě ještě 2 další třídy a jedno rozhraní.
+Rozhraní Readable - představuje rozhraní čitelného formátu pro nějaké médium
+
+Třída TextMSG: Ukázková třída, jak by implementace mohla vypadat.
+
+Třída Book
+Má 5 atributů:
+	1. název knihy
+	2. autor
+	3. datum vydání (String)
+	4. IBM (to je číslo, jedná se o ID knihy)
+	5. pages (ArrayList typu String reprezentující jednotlivé stránky)
+
+Úkoly:
+
+1.Implementuje Readable:
+	1. metoda GetText() - vrátí ve stringové podobě obsah všech stran - jako jeden String
+
+	2. metoda read() - čte obsah knihy, ten vypíše do konzole v následujícím formátu:
+
+	*Name* by *Author*
+	1/n
+	*1. stránka*
+	2/n
+	*Druhá stránka*
+	n/n (v případě LOTR to bude 4/4)
+	*n-tá stránka*
+
+2. Zajistěte, že 2 knihy jsou stejné, pokud mají stejné IBM.
+
+3. Doplňte funkcionalitu metodě wordCount() ve třídě GreatTale
+
+Kontrola: Měl by bez problému jít odkomentovat veškerý kód v main().
+
+Bonus: Je možné implementovat ještě další rozhraní? Pokuste se implementovat rozhraní Comparable tak, aby řadil knihy podle počtu stránek.

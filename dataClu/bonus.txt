@@ -1,0 +1,5 @@
+Implementace armor.
+
+Hodnota, která poníží Damage.
+Pozor: Damagage nemùže být záporná a nemùže být zredukována o více nez 90 %
+
