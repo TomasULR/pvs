@@ -1,39 +1,54 @@
 package oop.fileworks;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ReadingExamples {
+
     public static void main(String[] args) throws IOException {
-        File file = new File("data/countries.txt");
-        if (file.exists() && file.isFile()){
-            FileReader reader = new FileReader(file);
-            int input;
-            while(((input = reader.read()) != -1)){
-                //System.out.print((char) input);
-            }
-            reader.close();
+        File file = new File("data\\countries.txt");
+
+//        Scanner sc = new Scanner("hello,world,its,beautiful,day");
+//        sc.useDelimiter(",");
+//        while (sc.hasNext()){
+//            System.out.println(sc.next());
+//        }
+        Scanner sc = new Scanner(file);
+        sc.useLocale(Locale.US);
+        sc.useDelimiter(";");
+        while (sc.hasNext()){
+            System.out.println(sc.next());
         }
-        int vets =0;
-        int otazeks =0;
-        int vykricniks =0;
-        int slov =0;
-        List<String> lines = Files.readAllLines(Paths.get("inputs.txt"));
-        for (String line : lines){
-            for (int i = 0; i < line.length(); i++) {
-                if(line.charAt(i) == '.') vets++;
-                if(line.charAt(i) == ' ') slov++;
-                if(line.charAt(i) == '!') vykricniks++;
-                if(line.charAt(i) == '?') otazeks++;
+        sc.close();
+
+        FileReader reader = new FileReader(file);
+        int input;
+        while ((input = reader.read()) != -1){
+            System.out.print((char) input);
+        }
+        reader.close();
 
 
-            }
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+        String line;
+        while ((line = bufferedReader.readLine()) != null){
+            System.out.println(line);
         }
-        System.out.println(vets + " " + otazeks + " " + vykricniks + " " + slov);
+        bufferedReader.close();
+
+        List<String> lines = Files.readAllLines(Paths.get("data\\countries.txt"));
+        System.out.println(lines);
+        System.out.println(lines.size());
+//        for (String oneLine : lines){
+//            //parse...
+//        }
     }
+
 }
