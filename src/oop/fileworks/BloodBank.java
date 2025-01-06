@@ -1,7 +1,6 @@
 package oop.fileworks;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -76,7 +75,7 @@ class BloodDonor {
         this.bloodType = bloodType;
     }
 
-    boolean donate(BloodDonor from, BloodDonor to){
+    void donate(BloodDonor from, BloodDonor to){
 
     }
 
