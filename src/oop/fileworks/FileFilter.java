@@ -25,15 +25,15 @@ public class FileFilter implements Comparator {
         files.sort(BY_SIZE);
 
         for (File file : files){
-
-            System.out.println(file.getTotalSpace());
+            System.out.println(file.toString());
         }
+
     }
 
     public static void main(String[] args) {
 
 
-        printSortedFiles(getFilesByType("dataClu", "jpg"));
+        printSortedFiles(getFilesByType("testData", ".txt"));
 
 
 
