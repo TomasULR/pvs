@@ -1,0 +1,5 @@
+White, Superb, 325, true
+White, Octavia, 125, true
+Red, Felicia, 225, false
+Orange, Porche, 355, true
+Black, Superb, 425, true
