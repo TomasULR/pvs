@@ -1,10 +1,6 @@
 package oop.cinema;
 
-import fileworks.DataImport;
-import kotlin.collections.IntIterator;
-import oop.fileworks.serialization.Cordinates;
 
-import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -12,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class Movie {
+class Movie implements Serializable {
     String name;
     int yearOfRelease;
     double rating;
@@ -126,12 +122,12 @@ class PlaylistControl{
     }
     static ArrayList<Playlist> getAllPlaylists() throws IOException, ClassNotFoundException {
         File f = new File(filePath);
-        List<Playlist> deseralizedPlaylists = null;
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath));
-        deseralizedPlaylists = (List<Playlist>) ois.readObject();
-        ois.close();
-        AllPlaylistList = (ArrayList<Playlist>) deseralizedPlaylists;
-        return (ArrayList<Playlist>) deseralizedPlaylists;
+        if (f.exists()) {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath));
+            AllPlaylistList = (ArrayList<Playlist>) ois.readObject();
+            ois.close();
+        }
+        return AllPlaylistList;
     }
 
 }
@@ -142,7 +138,7 @@ class mov {
         m.add(new Movie("test", 1,2,5));
         PlaylistControl.newPlaylist(m, "test");
         PlaylistControl.saveAllPlaylists();
-        //PlaylistControl.getAllPlaylists();
+        System.out.println(PlaylistControl.getAllPlaylists());
 
         //find seralized file
 
@@ -172,7 +168,9 @@ class mov {
                     System.out.println(LoadData.loadData());
                     break;
                 case 2: //playlist sout
-
+                    for (Playlist p: PlaylistControl.getAllPlaylists()) {
+                        System.out.println(p);
+                    }
             }
         }
 
