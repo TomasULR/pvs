@@ -1,14 +1,13 @@
 package oop.cinema;
-
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-class Movie implements Serializable {
+class Movie implements Serializable{
     String name;
     int yearOfRelease;
     double rating;
@@ -88,7 +87,7 @@ class Playlist implements Serializable {
     }
 }
 
-class LoadData{
+class LoadData implements Serializable{
     static ArrayList<Movie> loadData() throws IOException {
         List<String> movies = Files.readAllLines(Paths.get("data\\MoviesPractice.txt"));
         String line;
@@ -119,15 +118,17 @@ class PlaylistControl{
             oos.writeObject(playlist);
         }
         oos.close();
+
     }
+
     static ArrayList<Playlist> getAllPlaylists() throws IOException, ClassNotFoundException {
         File f = new File(filePath);
-        if (f.exists()) {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath));
-            AllPlaylistList = (ArrayList<Playlist>) ois.readObject();
-            ois.close();
-        }
-        return AllPlaylistList;
+        List<Playlist> deseralizedPlaylists = null;
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath));
+        deseralizedPlaylists = (List<Playlist>) ois.readObject();
+        ois.close();
+        AllPlaylistList = (ArrayList<Playlist>) deseralizedPlaylists;
+        return (ArrayList<Playlist>) deseralizedPlaylists;
     }
 
 }
@@ -138,9 +139,7 @@ class mov {
         m.add(new Movie("test", 1,2,5));
         PlaylistControl.newPlaylist(m, "test");
         PlaylistControl.saveAllPlaylists();
-        System.out.println(PlaylistControl.getAllPlaylists());
-
-        //find seralized file
+        LoadData.loadData();
 
         int option;
         Scanner sc = new Scanner(System.in);
@@ -168,9 +167,8 @@ class mov {
                     System.out.println(LoadData.loadData());
                     break;
                 case 2: //playlist sout
-                    for (Playlist p: PlaylistControl.getAllPlaylists()) {
-                        System.out.println(p);
-                    }
+                    System.out.println(PlaylistControl.AllPlaylistList.toArray());
+
             }
         }
 
