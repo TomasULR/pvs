@@ -1,4 +1,4 @@
-package streaming.maps;
+package maps;
 
 import java.io.IOException;
 import java.nio.file.Files;
