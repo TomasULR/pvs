@@ -1,0 +1,26 @@
+Mapy - domácí oprava:
+Využijte přiložené soubory.
+
+Vytvořte třídy:
+Track - symbolizuje písničku
+Atributy: název, počet sekund 
+(v souboru si drží ID alba, do kterého patří)
+
+Album
+Atributy: ID, název alba, List všech písniček, které do něj patří.
+
+Namapujte do Listu všecny písničky z alba.
+
+Napište metodu getTotalDuration(), ta sebere celkovou dobu trvání všech písniček v albu. Metoda vrátí String ve formátu MM:SS
+
+Artist - symbolizuje umělce
+Atributy: ID, název umělce, List všech alb, které vydal
+
+Namapujte to Listu všechny alba.
+
+Napište metodu printRecords, která vypíše formát:
+AC/DC (název umělce)
+	For those about to Rock, We salute you: (název alba)
+		For those about to Rock (We salute you) (písničky)
+		Put the finger on you
+		Spellbound
