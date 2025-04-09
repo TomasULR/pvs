@@ -47,11 +47,10 @@ public class grades {
                         Collectors.mapping(s -> s, Collectors.averagingDouble(Student::getScore))));
 
 
+        System.out.println(avgForName);
     }
 
     static double getAverageScore(List<TestResults> results, String name) {
-
-
         return results.stream()
                 .mapToDouble(m ->m.score)
                 .average()
